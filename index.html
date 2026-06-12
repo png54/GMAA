@@ -154,7 +154,7 @@
     }
 
     /* ============================================================
-       HERO - خلفية زرقاء واضحة
+       HERO - مع النقاط البرتقالية الواضحة
     ============================================================ */
     #hero {
       min-height: 100vh;
@@ -166,6 +166,7 @@
       padding: 100px 5% 60px;
     }
 
+    /* النقاط البرتقالية المتحركة - كما كانت في التصميم الأول */
     .hero-bg-dots {
       position: absolute;
       inset: 0;
@@ -179,7 +180,7 @@
       top: 50%;
       transform: translateY(-50%);
       width: min(620px, 90vw);
-      opacity: 0.12;
+      opacity: 0.35;
       animation: globeRotate 30s linear infinite;
     }
 
@@ -359,7 +360,9 @@
       border-radius: 2px;
     }
 
-    /* ABOUT */
+    /* ============================================================
+       ABOUT
+    ============================================================ */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -372,7 +375,7 @@
     .about-logo-wrap {
       background: var(--white);
       border-radius: 12px;
-      padding: 50px;
+      padding: 40px 30px;
       box-shadow: 0 8px 30px rgba(30,77,140,0.14);
       text-align: center;
       position: relative;
@@ -389,23 +392,25 @@
 
     .about-logo-wrap img {
       width: 100%;
-      max-width: 280px;
+      max-width: 260px;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .about-badge {
       display: inline-block;
-      margin-top: 25px;
+      margin-top: 20px;
       background: var(--orange);
       color: var(--white);
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 8px 25px;
+      padding: 6px 20px;
       border-radius: 6px;
-      box-shadow: 0 4px 16px rgba(244,121,32,0.4);
+      box-shadow: 0 4px 12px rgba(244,121,32,0.4);
     }
 
     .about-text h2 {
@@ -445,7 +450,9 @@
       border-radius: 4px;
     }
 
-    /* SERVICES */
+    /* ============================================================
+       SERVICES
+    ============================================================ */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -545,7 +552,9 @@
       margin-top: 6px;
     }
 
-    /* MISSION */
+    /* ============================================================
+       MISSION
+    ============================================================ */
     #mission {
       background: linear-gradient(135deg, #0F3B6B 0%, #1E4D8C 60%, #2A5FA3 100%);
       padding: 100px 5%;
@@ -586,7 +595,9 @@
       padding-top: 1.5rem;
     }
 
-    /* CONTACT */
+    /* ============================================================
+       CONTACT
+    ============================================================ */
     .contact-grid {
       max-width: 800px;
       margin: 0 auto;
@@ -734,7 +745,9 @@
     .social-link[data-platform="youtube"]:hover { background: #ff0000; }
     .social-link[data-platform="twitter"]:hover { background: #1da1f2; }
 
-    /* FOOTER */
+    /* ============================================================
+       FOOTER
+    ============================================================ */
     footer {
       background: #0F3B6B;
       color: rgba(255,255,255,0.6);
@@ -750,16 +763,27 @@
       margin-bottom: 30px;
     }
 
+    .footer-logo-wrapper {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 12px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+    }
+
     .footer-brand img {
       height: 56px;
       width: auto;
-      margin-bottom: 1rem;
+      display: block;
     }
 
     .footer-brand p {
       font-size: 0.85rem;
       line-height: 1.7;
       max-width: 280px;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .footer-col h4 {
@@ -834,6 +858,8 @@
       .footer-top { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; align-items: flex-start; }
       .social-link { width: 50px; height: 50px; font-size: 1.3rem; }
+      .footer-logo-wrapper { padding: 8px; }
+      .footer-brand img { height: 45px; }
     }
 
     @media (max-width: 480px) {
@@ -867,6 +893,7 @@
     <a href="#contact">Contact</a>
   </div>
 
+  <!-- HERO SECTION -->
   <section id="hero">
     <div class="hero-bg-dots">
       <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" fill="#F47920">
@@ -907,6 +934,7 @@
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
   <section id="about" class="section section-alt">
     <div class="about-grid">
       <div class="about-visual animate-up">
@@ -931,6 +959,7 @@
     </div>
   </section>
 
+  <!-- SERVICES SECTION -->
   <section id="services" class="section">
     <div class="section-header animate-up">
       <div class="section-eyebrow">Nos domaines d'expertise</div>
@@ -959,6 +988,7 @@
     </div>
   </section>
 
+  <!-- MISSION SECTION -->
   <section id="mission">
     <div class="section-header animate-up">
       <div class="section-eyebrow">Notre mission</div>
@@ -971,6 +1001,7 @@
     </div>
   </section>
 
+  <!-- CONTACT SECTION -->
   <section id="contact" class="section section-alt">
     <div class="section-header animate-up">
       <div class="section-eyebrow">Contact</div>
@@ -1000,10 +1031,13 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="https://d.top4top.io/p_3815nxpsv1.png" alt="Global Media Algérie" />
+        <div class="footer-logo-wrapper">
+          <img src="https://d.top4top.io/p_3815nxpsv1.png" alt="Global Media Algérie" />
+        </div>
         <p>Agence de communication et conseil stratégique au service de votre visibilité et de votre développement en Algérie et à l'international.</p>
       </div>
       <div class="footer-col">
