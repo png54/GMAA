@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Media Algérie — Agence de Communication & Conseil Stratégique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ============================================================
+       RESET & ROOT VARIABLES
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1E4D8C;
+      --navy-dark:  #0F3B6B;
+      --navy-light: #2A5FA3;
+      --orange:     #F47920;
+      --orange-dark:#d4661a;
+      --white:      #FFFFFF;
+      --off-white:  #F5F7FA;
+      --gray-light: #E8ECF1;
+      --text-dark:  #1a1a2e;
+      --text-muted: #6B7280;
+      --text-light: #9CA3AF;
+      --font-display: 'Raleway', sans-serif;
+      --font-body:    'Open Sans', sans-serif;
+      --radius:     12px;
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 76px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(30,77,140,0.1);
+      transition: all var(--transition);
+    }
+
+    #navbar.scrolled { height: 64px; }
+
+    .nav-logo img {
+      height: 64px;
+      width: auto;
+      display: block;
+      transition: height var(--transition);
+    }
+
+    #navbar.scrolled .nav-logo img { height: 56px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--orange);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 10px 22px !important;
+      border-radius: 6px;
+    }
+
+    .nav-cta:hover { background: var(--orange-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 76px; left: 0; right: 0;
+      background: var(--white);
+      padding: 1.5rem 5%;
+      box-shadow: 0 8px 30px rgba(30,77,140,0.14);
+      z-index: 999;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    /* ============================================================
+       HERO - خلفية زرقاء واضحة
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0F3B6B 0%, #1E4D8C 50%, #2A5FA3 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+
+    .hero-bg-dots {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-bg-dots svg {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(620px, 90vw);
+      opacity: 0.12;
+      animation: globeRotate 30s linear infinite;
+    }
+
+    @keyframes globeRotate {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to   { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--orange), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1.0;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-title span { color: var(--orange); }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--orange);
+      margin-bottom: 1.8rem;
+      border-radius: 2px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(244,121,32,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: 6px;
+      border: 2px solid rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       SECTIONS
+    ============================================================ */
+    .section { padding: 90px 5%; }
+    .section-alt { background: var(--off-white); }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-title em { font-style: normal; color: var(--orange); }
+
+    .section-line {
+      width: 50px;
+      height: 3px;
+      background: var(--orange);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-logo-wrap {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 8px 30px rgba(30,77,140,0.14);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-logo-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--navy), var(--orange));
+    }
+
+    .about-logo-wrap img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+    }
+
+    .about-badge {
+      display: inline-block;
+      margin-top: 25px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 25px;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(244,121,32,0.4);
+    }
+
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text h2 em { font-style: normal; color: var(--orange); }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.5rem;
+    }
+
+    .about-tag {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 4px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 44px 36px;
+      box-shadow: 0 2px 8px rgba(30,77,140,0.08);
+      border: 1px solid var(--gray-light);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--navy), var(--orange));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(30,77,140,0.18);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(30,77,140,0.08), rgba(244,121,32,0.08));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--navy);
+      transition: all var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card .service-intro {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .service-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+    }
+
+    .service-items li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      margin-top: 6px;
+    }
+
+    /* MISSION */
+    #mission {
+      background: linear-gradient(135deg, #0F3B6B 0%, #1E4D8C 60%, #2A5FA3 100%);
+      padding: 100px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #mission .section-title { color: var(--white); }
+    #mission .section-eyebrow { color: var(--orange); }
+
+    .mission-quote { max-width: 800px; margin: 0 auto; }
+    .mission-quote-icon {
+      font-size: 4rem;
+      color: rgba(244,121,32,0.25);
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: -1rem;
+      display: block;
+    }
+    .mission-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .mission-slogan {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      border-top: 1px solid rgba(244,121,32,0.4);
+      padding-top: 1.5rem;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .contact-item-value.placeholder {
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* SOCIAL MEDIA */
+    .social-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .social-section h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-section h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(30, 77, 140, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(244, 121, 32, 0.25);
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, var(--orange), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .social-link:hover {
+      transform: translateY(-8px) scale(1.1);
+      color: white;
+      border-color: transparent;
+    }
+
+    .social-link:hover::before { opacity: 1; }
+    .social-link[data-platform="facebook"]:hover { background: #1877f2; }
+    .social-link[data-platform="instagram"]:hover { background: linear-gradient(45deg, #f09433, #d62976, #962fbf); }
+    .social-link[data-platform="linkedin"]:hover { background: #0077b5; }
+    .social-link[data-platform="youtube"]:hover { background: #ff0000; }
+    .social-link[data-platform="twitter"]:hover { background: #1da1f2; }
+
+    /* FOOTER */
+    footer {
+      background: #0F3B6B;
+      color: rgba(255,255,255,0.6);
+      padding: 50px 5% 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 30px;
+    }
+
+    .footer-brand img {
+      height: 56px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-col ul li a::before {
+      content: '→';
+      font-size: 0.7rem;
+      color: var(--orange);
+    }
+
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-copy { font-size: 0.8rem; }
+    .footer-copy span { color: var(--orange); font-weight: 600; }
+    .footer-made { font-size: 0.75rem; opacity: 0.5; }
+
+    /* ANIMATIONS */
+    .animate-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .social-link { width: 50px; height: 50px; font-size: 1.3rem; }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <img src="https://d.top4top.io/p_3815nxpsv1.png" alt="Global Media Algérie" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero">Accueil</a>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#mission">Mission</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <section id="hero">
+    <div class="hero-bg-dots">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" fill="#F47920">
+        <circle cx="250" cy="60" r="7"/><circle cx="310" cy="68" r="8.5"/><circle cx="365" cy="90" r="10"/>
+        <circle cx="408" cy="124" r="11.5"/><circle cx="438" cy="168" r="12.5"/><circle cx="452" cy="218" r="13"/>
+        <circle cx="450" cy="270" r="12.5"/><circle cx="433" cy="318" r="11.5"/><circle cx="403" cy="360" r="10"/>
+        <circle cx="362" cy="392" r="8.5"/><circle cx="312" cy="412" r="7"/><circle cx="258" cy="418" r="6"/>
+        <circle cx="204" cy="410" r="7"/><circle cx="154" cy="388" r="8.5"/><circle cx="113" cy="354" r="10"/>
+        <circle cx="82" cy="312" r="11.5"/><circle cx="64" cy="262" r="12.5"/><circle cx="60" cy="210" r="13"/>
+        <circle cx="72" cy="160" r="12"/><circle cx="98" cy="116" r="10.5"/><circle cx="138" cy="82" r="9"/>
+        <circle cx="188" cy="62" r="7.5"/>
+        <circle cx="250" cy="120" r="6"/><circle cx="300" cy="130" r="7"/><circle cx="344" cy="155" r="8"/>
+        <circle cx="376" cy="192" r="9"/><circle cx="393" cy="238" r="9.5"/><circle cx="392" cy="284" r="9"/>
+        <circle cx="374" cy="326" r="8"/><circle cx="340" cy="358" r="7"/><circle cx="297" cy="377" r="6"/>
+        <circle cx="250" cy="382" r="5.5"/><circle cx="203" cy="374" r="6"/><circle cx="161" cy="353" r="7"/>
+        <circle cx="128" cy="320" r="8"/><circle cx="108" cy="278" r="9"/><circle cx="107" cy="230" r="9.5"/>
+        <circle cx="126" cy="185" r="9"/><circle cx="158" cy="152" r="8"/><circle cx="200" cy="131" r="7"/>
+        <circle cx="250" cy="185" r="5"/><circle cx="290" cy="192" r="5.5"/><circle cx="325" cy="212" r="6"/>
+        <circle cx="346" cy="242" r="6.5"/><circle cx="350" cy="275" r="6.5"/><circle cx="337" cy="305" r="6"/>
+        <circle cx="312" cy="326" r="5.5"/><circle cx="281" cy="336" r="5"/><circle cx="250" cy="338" r="5"/>
+        <circle cx="219" cy="333" r="5"/><circle cx="190" cy="320" r="5.5"/><circle cx="167" cy="298" r="6"/>
+        <circle cx="153" cy="270" r="6.5"/><circle cx="151" cy="238" r="6.5"/><circle cx="162" cy="208" r="6"/>
+        <circle cx="185" cy="186" r="5.5"/><circle cx="215" cy="174" r="5"/>
+        <circle cx="250" cy="250" r="4"/><circle cx="270" cy="244" r="4"/><circle cx="286" cy="256" r="4.5"/>
+        <circle cx="278" cy="272" r="4"/><circle cx="258" cy="278" r="4"/><circle cx="242" cy="268" r="4"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Agence de Communication</div>
+      <h1 class="hero-title">Global<br/>Media<br/><span>Algérie</span></h1>
+      <p class="hero-subtitle">Conseil Stratégique & Production Médias</p>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">Nous accompagnons les entreprises, institutions et porteurs de projets dans la conception et la mise en œuvre de stratégies de communication performantes — de l'idée à la diffusion.</p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn-primary"><i class="fas fa-arrow-right"></i> Nos services</a>
+        <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section section-alt">
+    <div class="about-grid">
+      <div class="about-visual animate-up">
+        <div class="about-logo-wrap">
+          <img src="https://d.top4top.io/p_3815nxpsv1.png" alt="Logo Global Media Algérie" />
+          <div class="about-badge">Algérie</div>
+        </div>
+      </div>
+      <div class="about-text animate-up">
+        <div class="section-eyebrow">Qui sommes-nous</div>
+        <h2>Votre partenaire en <em>communication</em> stratégique</h2>
+        <p>Global Media Algérie accompagne les entreprises, institutions et porteurs de projets dans la conception, le développement et la mise en œuvre de stratégies de communication performantes.</p>
+        <p>Grâce à une expertise reconnue dans les médias et l'audiovisuel, nous proposons des solutions innovantes et adaptées aux enjeux spécifiques de chacun de nos clients.</p>
+        <div class="about-tags">
+          <span class="about-tag">Communication</span>
+          <span class="about-tag">Stratégie</span>
+          <span class="about-tag">Audiovisuel</span>
+          <span class="about-tag">Régie Publicitaire</span>
+          <span class="about-tag">Médias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="section-header animate-up">
+      <div class="section-eyebrow">Nos domaines d'expertise</div>
+      <h2 class="section-title">Des solutions <em>complètes</em> pour vos besoins</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card animate-up">
+        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Conseil en Communication & Stratégie</h3>
+        <p class="service-intro">Nous élaborons des plans de communication sur mesure et accompagnons votre image de marque vers plus de visibilité et d'impact.</p>
+        <ul class="service-items"><li>Élaboration de plans de communication</li><li>Accompagnement et conseil en image de marque</li></ul>
+      </div>
+      <div class="service-card animate-up">
+        <div class="service-icon"><i class="fas fa-film"></i></div>
+        <h3>Production Audiovisuelle</h3>
+        <p class="service-intro">De l'idée à la diffusion, nous produisons des contenus audiovisuels de haute qualité adaptés à vos objectifs de communication.</p>
+        <ul class="service-items"><li>Films institutionnels</li><li>Reportages</li><li>Documentaires</li><li>Spots publicitaires</li><li>Contenus digitaux</li></ul>
+      </div>
+      <div class="service-card animate-up">
+        <div class="service-icon"><i class="fas fa-broadcast-tower"></i></div>
+        <h3>Régie Publicitaire</h3>
+        <p class="service-intro">Nous gérons vos campagnes publicitaires de bout en bout avec une approche multicanale et des résultats mesurables.</p>
+        <ul class="service-items"><li>Achat et gestion d'espaces médias</li><li>Diffusion et distribution de contenus</li><li>Conception et lancement de projets médias clés en main</li><li>Gestion de campagnes multicanales</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="section-header animate-up">
+      <div class="section-eyebrow">Notre mission</div>
+      <h2 class="section-title">Ce qui nous <em>anime</em></h2>
+    </div>
+    <div class="mission-quote animate-up">
+      <span class="mission-quote-icon">"</span>
+      <p class="mission-text">Mettre notre savoir-faire au service de la visibilité et du développement de nos partenaires en leur offrant des solutions créatives, stratégiques et opérationnelles, de l'idée à la diffusion.</p>
+      <span class="mission-slogan">Global Media Algérie : votre partenaire de confiance pour transformer vos idées en impact médiatique durable.</span>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-alt">
+    <div class="section-header animate-up">
+      <div class="section-eyebrow">Contact</div>
+      <h2 class="section-title">Parlons de votre <em>projet</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info animate-up">
+        <h3>Nous sommes à votre écoute</h3>
+        <p>Vous avez un projet de communication ou souhaitez en savoir plus sur nos services ? Contactez-nous et construisons ensemble votre stratégie médiatique.</p>
+        <div class="contact-items">
+          <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone"></i></div><div class="contact-item-text"><div class="contact-item-label">Téléphone</div><div class="contact-item-value placeholder"><!-- AJOUTER NUMÉRO --></div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div class="contact-item-text"><div class="contact-item-label">Email</div><div class="contact-item-value placeholder"><!-- AJOUTER EMAIL --></div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-item-text"><div class="contact-item-label">Adresse</div><div class="contact-item-value placeholder"><!-- AJOUTER ADRESSE --></div></div></div>
+        </div>
+        <div class="social-section">
+          <h4>Suivez-nous</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" data-platform="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" data-platform="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" data-platform="twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://d.top4top.io/p_3815nxpsv1.png" alt="Global Media Algérie" />
+        <p>Agence de communication et conseil stratégique au service de votre visibilité et de votre développement en Algérie et à l'international.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul><li><a href="#hero">Accueil</a></li><li><a href="#about">À propos</a></li><li><a href="#services">Services</a></li><li><a href="#mission">Notre mission</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul><li><a href="#services">Conseil & Stratégie</a></li><li><a href="#services">Production Audiovisuelle</a></li><li><a href="#services">Régie Publicitaire</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>Global Media Algérie</span>. Tous droits réservés.</p>
+      <p class="footer-made">De l'idée à la diffusion.</p>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => { if (window.scrollY >= section.offsetTop - 100) current = section.id || ''; });
+      navLinks.forEach(link => { link.style.color = ''; if (link.getAttribute('href') === '#' + current) link.style.color = 'var(--orange)'; });
+    });
+  </script>
+</body>
+</html>
